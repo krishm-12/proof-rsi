@@ -1,0 +1,1 @@
+{"key": "smoke_reflexive", "domain": "arithmetic", "level": 0, "statement": "(a : Nat) : a = a", "proof": "exact rfl", "axioms": [], "stage": "smoke", "attempt": "initial"}

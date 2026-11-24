@@ -1,0 +1,402 @@
+{
+  "config": {
+    "command": "run",
+    "model": "models/Qwen2.5-Coder-3B-Instruct",
+    "device": "cuda",
+    "threads": 6,
+    "seed": 17,
+    "out": "runs/gpu-rsi-resample",
+    "lean": "lean",
+    "minutes": 60.0,
+    "rounds": 3,
+    "epochs": 1,
+    "learning_rate": 0.0002,
+    "max_steps": 0,
+    "max_tokens": 72,
+    "attempts": 5,
+    "train_problems": 10,
+    "eval_per_domain": 2,
+    "eval_attempts": 2,
+    "smoke_first": true,
+    "smoke_only": false,
+    "conjectures": true
+  },
+  "lean": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "rounds": [
+    {
+      "round": 1,
+      "levels": {
+        "arithmetic": 0,
+        "algebra": 0,
+        "inequalities": 0,
+        "logic": 0,
+        "induction": 0
+      },
+      "accepted": false,
+      "collection": {
+        "planned": 5,
+        "tested": 5,
+        "solved": 0,
+        "complete": true,
+        "accuracy": 0.0,
+        "wilson_95": [
+          0,
+          0.43449149475208104
+        ],
+        "attempts": {
+          "initial": {
+            "attempted": 5,
+            "verified": 0,
+            "rate": 0.0
+          },
+          "repair": {
+            "attempted": 5,
+            "verified": 0,
+            "rate": 0.0
+          },
+          "resample": {
+            "attempted": 15,
+            "verified": 0,
+            "rate": 0.0
+          }
+        },
+        "domains": {
+          "arithmetic": {
+            "tested": 1,
+            "solved": 0
+          },
+          "algebra": {
+            "tested": 1,
+            "solved": 0
+          },
+          "inequalities": {
+            "tested": 1,
+            "solved": 0
+          },
+          "logic": {
+            "tested": 1,
+            "solved": 0
+          },
+          "induction": {
+            "tested": 1,
+            "solved": 0
+          }
+        },
+        "solved_keys": []
+      },
+      "outcome": "no new verified data or insufficient training time"
+    },
+    {
+      "round": 2,
+      "levels": {
+        "arithmetic": 0,
+        "algebra": 0,
+        "inequalities": 0,
+        "logic": 0,
+        "induction": 0
+      },
+      "accepted": false,
+      "collection": {
+        "planned": 5,
+        "tested": 5,
+        "solved": 0,
+        "complete": true,
+        "accuracy": 0.0,
+        "wilson_95": [
+          0,
+          0.43449149475208104
+        ],
+        "attempts": {
+          "initial": {
+            "attempted": 5,
+            "verified": 0,
+            "rate": 0.0
+          },
+          "repair": {
+            "attempted": 5,
+            "verified": 0,
+            "rate": 0.0
+          },
+          "resample": {
+            "attempted": 15,
+            "verified": 0,
+            "rate": 0.0
+          }
+        },
+        "domains": {
+          "arithmetic": {
+            "tested": 1,
+            "solved": 0
+          },
+          "algebra": {
+            "tested": 1,
+            "solved": 0
+          },
+          "inequalities": {
+            "tested": 1,
+            "solved": 0
+          },
+          "logic": {
+            "tested": 1,
+            "solved": 0
+          },
+          "induction": {
+            "tested": 1,
+            "solved": 0
+          }
+        },
+        "solved_keys": []
+      },
+      "outcome": "no new verified data or insufficient training time"
+    },
+    {
+      "round": 3,
+      "levels": {
+        "arithmetic": 0,
+        "algebra": 0,
+        "inequalities": 0,
+        "logic": 0,
+        "induction": 0
+      },
+      "accepted": false,
+      "collection": {
+        "planned": 5,
+        "tested": 5,
+        "solved": 0,
+        "complete": true,
+        "accuracy": 0.0,
+        "wilson_95": [
+          0,
+          0.43449149475208104
+        ],
+        "attempts": {
+          "initial": {
+            "attempted": 5,
+            "verified": 0,
+            "rate": 0.0
+          },
+          "repair": {
+            "attempted": 5,
+            "verified": 0,
+            "rate": 0.0
+          },
+          "resample": {
+            "attempted": 15,
+            "verified": 0,
+            "rate": 0.0
+          }
+        },
+        "domains": {
+          "arithmetic": {
+            "tested": 1,
+            "solved": 0
+          },
+          "algebra": {
+            "tested": 1,
+            "solved": 0
+          },
+          "inequalities": {
+            "tested": 1,
+            "solved": 0
+          },
+          "logic": {
+            "tested": 1,
+            "solved": 0
+          },
+          "induction": {
+            "tested": 1,
+            "solved": 0
+          }
+        },
+        "solved_keys": []
+      },
+      "outcome": "no new verified data or insufficient training time"
+    }
+  ],
+  "loss": [],
+  "status": "complete",
+  "elapsed_s": 298.84,
+  "lean_subprocesses": 150,
+  "verification_cache_hits": 99,
+  "device": "cuda",
+  "tokens": {
+    "prompt": 19009,
+    "generated": 4057,
+    "training_input": 116,
+    "training_answer": 5
+  },
+  "gpu_peak": {
+    "allocated_mib": 2081.9,
+    "reserved_mib": 2174.0
+  },
+  "smoke": {
+    "proof": {
+      "key": "smoke_reflexive",
+      "domain": "arithmetic",
+      "level": 0,
+      "statement": "(a : Nat) : a = a",
+      "proof": "exact rfl",
+      "axioms": [],
+      "stage": "smoke",
+      "attempt": "initial"
+    },
+    "loss": 3.579097032546997
+  },
+  "validation_keys": [
+    "subtract_balance",
+    "product_swap",
+    "squeeze",
+    "implication_contrapositive",
+    "recursive_agreement",
+    "division_reassemble",
+    "factor_shared_sum",
+    "strict_mul",
+    "or_distrib",
+    "list_transfer"
+  ],
+  "baseline": {
+    "planned": 10,
+    "tested": 10,
+    "solved": 0,
+    "complete": true,
+    "accuracy": 0.0,
+    "wilson_95": [
+      0,
+      0.2775401687666166
+    ],
+    "attempts": {
+      "initial": {
+        "attempted": 10,
+        "verified": 0,
+        "rate": 0.0
+      },
+      "repair": {
+        "attempted": 10,
+        "verified": 0,
+        "rate": 0.0
+      },
+      "resample": {
+        "attempted": 0,
+        "verified": 0,
+        "rate": null
+      }
+    },
+    "domains": {
+      "arithmetic": {
+        "tested": 2,
+        "solved": 0
+      },
+      "algebra": {
+        "tested": 2,
+        "solved": 0
+      },
+      "inequalities": {
+        "tested": 2,
+        "solved": 0
+      },
+      "logic": {
+        "tested": 2,
+        "solved": 0
+      },
+      "induction": {
+        "tested": 2,
+        "solved": 0
+      }
+    },
+    "solved_keys": []
+  },
+  "final_reserved_s": 121.0,
+  "selected_adapter": null,
+  "final_keys": [
+    "nat_parity_roundtrip",
+    "product_congruence",
+    "min_between",
+    "resolve_disjunction",
+    "induction_parity_steps",
+    "successor_sub",
+    "multiplicative_cancel",
+    "neg_flip",
+    "iff_transport",
+    "append_accumulator"
+  ],
+  "final": {
+    "base": {
+      "planned": 10,
+      "tested": 10,
+      "solved": 0,
+      "complete": true,
+      "accuracy": 0.0,
+      "wilson_95": [
+        0,
+        0.2775401687666166
+      ],
+      "attempts": {
+        "initial": {
+          "attempted": 10,
+          "verified": 0,
+          "rate": 0.0
+        },
+        "repair": {
+          "attempted": 10,
+          "verified": 0,
+          "rate": 0.0
+        },
+        "resample": {
+          "attempted": 0,
+          "verified": 0,
+          "rate": null
+        }
+      },
+      "domains": {
+        "arithmetic": {
+          "tested": 2,
+          "solved": 0
+        },
+        "algebra": {
+          "tested": 2,
+          "solved": 0
+        },
+        "inequalities": {
+          "tested": 2,
+          "solved": 0
+        },
+        "logic": {
+          "tested": 2,
+          "solved": 0
+        },
+        "induction": {
+          "tested": 2,
+          "solved": 0
+        }
+      },
+      "solved_keys": []
+    },
+    "selected": null
+  },
+  "verified_training_count": 0,
+  "evidence": {
+    "attempts_total": 116,
+    "sample_size": 10,
+    "attempt_outcomes": {
+      "initial": {
+        "verified": 1,
+        "rejected": 35,
+        "interrupted": 0
+      },
+      "repair": {
+        "verified": 0,
+        "rejected": 35,
+        "interrupted": 0
+      },
+      "resample": {
+        "verified": 0,
+        "rejected": 45,
+        "interrupted": 0
+      }
+    },
+    "rejection_kinds": {
+      "syntax": 70,
+      "lean": 45
+    }
+  }
+}

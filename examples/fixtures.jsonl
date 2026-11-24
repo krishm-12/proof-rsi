@@ -1,0 +1,2 @@
+{"key":"nat_shift","domain":"arithmetic","statement":"(a b : Nat) (h : a = b) : a + 2 = b + 2","proof":"omega","source":"hand-authored Lean verifier fixture"}
+{"key":"and_project","domain":"logic","statement":"(P Q : Prop) (h : P ∧ Q) : Q","proof":"exact h.2","source":"hand-authored Lean verifier fixture"}

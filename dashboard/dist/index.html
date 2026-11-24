@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>RSI — Recursive Intelligence Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#overview"><span class="mark" aria-hidden="true">⟲</span><span>RSI<small>INTELLIGENCE LAB</small></span></a>
+    <div class="nav-section">WORKSPACE</div>
+    <nav aria-label="Dashboard sections">
+      <a href="#overview" class="active"><span aria-hidden="true">▦</span> Overview</a>
+      <a href="#learning"><span aria-hidden="true">⌁</span> Learning</a>
+      <a href="#proofs"><span aria-hidden="true">⟨⟩</span> Proof explorer</a>
+      <a href="#telemetry"><span aria-hidden="true">◉</span> Hardware</a>
+    </nav>
+    <div class="sidebar-footer"><span class="dot"></span><div>Local workspace<small>Read-only monitor</small></div></div>
+  </aside>
+  <div class="workspace">
+    <header class="toolbar">
+      <div class="breadcrumb">Workspace <span>/</span> Proof RSI</div>
+      <div class="toolbar-actions">
+        <span id="feed" role="status">Connecting</span>
+        <label class="run-label"><span>Run</span><select id="run" aria-label="Experiment run"><option value="">Latest run</option></select></label>
+        <button id="refresh" type="button" aria-label="Refresh data" title="Refresh data">↻</button>
+      </div>
+    </header>
+    <main>
+      <section id="overview" class="hero" aria-labelledby="title">
+        <div class="hero-main">
+          <div class="eyebrow"><span></span> LEAN PROOF EXPERIMENT</div>
+          <h1 id="title">Recursive Intelligence <em>Lab</em></h1>
+          <p id="model">Experiment monitor</p>
+        </div>
+        <div class="hero-status"><span class="caption">EXPERIMENT STATUS</span><strong id="status">Awaiting run data</strong><span id="updated">—</span></div>
+      </section>
+      <div class="kpis" aria-label="Experiment summary">
+        <article class="card kpi"><div>Generation attempts <span>⌁</span></div><strong id="generation">—</strong><small id="generation-note">Logged proof attempts</small></article>
+        <article class="card kpi"><div>Verified proofs <span>✓</span></div><strong id="verified">—</strong><small id="verified-note">Lean kernel checks</small></article>
+        <article class="card kpi"><div>Validation accuracy <span>◈</span></div><strong id="accuracy">—</strong><small id="accuracy-note">Awaiting validation</small></article>
+        <article class="card kpi"><div>Elapsed time <span>◷</span></div><strong id="elapsed">—</strong><small id="budget">—</small></article>
+      </div>
+      <section id="learning" class="section">
+        <div class="section-heading"><h2>Learning dynamics</h2><span id="round-label"></span></div>
+        <div class="grid primary">
+          <article class="card panel loss-panel">
+            <div class="panel-heading"><div><h3>Training loss</h3><p>Answer-token cross-entropy per optimizer step</p></div><label><select id="loss-round" aria-label="Training loss round"><option value="">All rounds</option></select></label></div>
+            <div id="loss-wrap" class="chart"><canvas id="loss-chart" tabindex="0" aria-label="Training loss plot. Use arrow keys to inspect optimizer steps."></canvas><div id="loss-tooltip" class="tooltip" hidden></div><div id="loss-empty" class="empty"></div></div>
+            <div id="loss-footer" class="chart-footer"></div>
+          </article>
+          <article class="card panel pipeline-panel">
+            <div class="panel-heading"><div><h3>Recursive learning loop</h3><p>Proof generation through adapter selection</p></div><span id="pipeline-tag" class="tag">STANDBY</span></div>
+            <ol class="pipeline" id="pipeline">
+              <li data-phase="generate"><span class="node">⌁</span><div><strong>Generate candidates</strong><small id="pipe-generate">Qwen continuation</small></div></li>
+              <li data-phase="verify"><span class="node">✓</span><div><strong>Verify with Lean</strong><small id="pipe-verify">Kernel and axiom audit</small></div></li>
+              <li data-phase="train"><span class="node">◇</span><div><strong>Update adapter</strong><small id="pipe-train">QLoRA optimizer</small></div></li>
+              <li data-phase="evaluate"><span class="node">↻</span><div><strong>Evaluate and select</strong><small id="pipe-evaluate">Held-out validation</small></div></li>
+            </ol>
+          </article>
+        </div>
+        <div class="grid secondary">
+          <article class="card panel"><div class="panel-heading"><div><h3>Domain performance</h3><p>Lean-verified theorems by evaluation stage</p></div></div><div class="overflow" id="heatmap"></div></article>
+          <article class="card panel"><div class="panel-heading"><div><h3>Proof outcomes</h3><p>Verifier results by attempt type</p></div></div><div id="outcomes"></div></article>
+          <article class="card panel"><div class="panel-heading"><div><h3>Theorem difficulty</h3><p>Curriculum level at the start of each round</p></div></div><div class="overflow" id="difficulty"></div></article>
+          <article class="card panel"><div class="panel-heading"><div><h3>Model comparison</h3><p id="comparison-label">Base Qwen and adapter accuracy</p></div></div><div id="comparison"></div></article>
+        </div>
+        <article class="card panel checkpoints-panel"><div class="panel-heading"><div><h3>Checkpoint evolution</h3><p>Adapter selection across recursive rounds</p></div></div><div id="checkpoints"></div></article>
+      </section>
+      <section id="proofs" class="section">
+        <div class="section-heading"><h2>Proof explorer</h2><span id="proof-count"></span></div>
+        <article class="card explorer">
+          <div class="explorer-list">
+            <div class="filters"><input id="search" type="search" placeholder="Search theorems…" aria-label="Search theorems"><select id="proof-filter" aria-label="Filter proof attempts"><option value="">All outcomes</option><option value="verified">Verified</option><option value="rejected">Rejected</option><option value="interrupted">Interrupted</option></select></div>
+            <div id="proof-list"></div>
+            <div id="pagination" class="pagination" hidden><button id="prev" type="button">Previous</button><span id="page"></span><button id="next" type="button">Next</button></div>
+          </div>
+          <div class="proof-detail" id="proof-detail"></div>
+        </article>
+      </section>
+      <section id="telemetry" class="section">
+        <div class="section-heading"><h2>Hardware &amp; throughput</h2><span id="gpu-name">GPU telemetry unavailable</span></div>
+        <div id="hardware" class="kpis"></div>
+        <article class="card panel usage-panel"><div class="panel-heading"><div><h3>Token accounting</h3><p>Experiment totals and measured training throughput</p></div></div><div id="usage" class="usage"></div></article>
+      </section>
+      <footer>RSI &nbsp; / &nbsp; Recursive Intelligence Lab <span>Refreshes every 4 seconds</span></footer>
+    </main>
+  </div>
+</body>
+</html>

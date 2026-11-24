@@ -1,0 +1,10 @@
+{
+  "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "revision": "488639f1ff808d1d3d0ba301aef8c11461451ec5",
+  "base_parameters": 3085938688,
+  "trainable_parameters": 3022848,
+  "lora_rank": 8,
+  "lora_targets": ["q_proj", "v_proj", "o_proj"],
+  "quantization": "4-bit NF4 with double quantization",
+  "gpu": "NVIDIA GeForce RTX 5050 Laptop GPU"
+}
